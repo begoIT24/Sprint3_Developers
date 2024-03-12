@@ -1,0 +1,27 @@
+[
+{
+    "id": 1,
+    "nom": "Actualitzar CV",
+    "estat": "pendent",
+    "hora_ini": "",
+    "hora_fi": "",
+    "autor": "Maria"
+},
+{
+    "id": 2,
+    "nom": "Acabar Sprint 3",
+    "estat": "execució",
+    "hora_ini": "",
+    "hora_fi": "",
+    "autor": "Joan"
+},
+{
+    "id": 3,
+    "nom": "Mirar tutorial Tailwind CSS",
+    "estat": "acabat",
+    "hora_ini": "",
+    "hora_fi": "",
+    "autor": "Maria"
+}
+
+]
