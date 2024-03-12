@@ -22,8 +22,10 @@ class ApplicationController extends Controller
 
     // Mostra els detalls d'una tasca
     public function readTaskAction(){
+       // $id = $_GET["id"];      //desde dónde entrar la id?
         $task = new TaskModel;
-        $task -> readTask();
+        $oneTask = $task -> readTask('2');
+        $this -> view -> oneTask = $oneTask;
     }
 
     // Edita una tasca
