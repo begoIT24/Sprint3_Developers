@@ -18,15 +18,16 @@ class TaskModel{
     }
 
     // Mostra els detalls d'una tasca
-    public function readTask(){
-
+    public function readTask($id){
+        $data = $this->readlist();
+        return $data[$id];
     }
 
     // Edita una tasca
     public function updateTask(){
 
     }
-    
+
     // Esborra una tasca
     public function deleteTask(){
 
