@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main page 'Lista de tareas'</title>
 </head>
 <body>
 Hola, soy index  
 <?php
 $listTasks = $this -> data;
-print_r($listTasks);
+//print_r($listTasks);
 ?>
+<div class="card rounded-0 shadow">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <div class="card-title col-auto flex-shrink-1 flex-grow-1">LISTA DE TAREAS</div>
+            <div class="col-atuo">
+                <a class="btn btn-danger btn-sm btn-flat" href= "create"><i class="fa fa-plus-square"></i> new task</a> 
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <table class="table table-stripped table-bordered">
+                <colgroup>
+                    <col max-width>
+                    <col max-width>
+                    <col max-width>
+                    <col max-width>
+                    <col max-width>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="text-center">ID</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">Hora inicio</th>
+                        <th class="text-center">Hora fin</th>
+                        <th class="text-center">Autor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($listTasks as $data) : ?>
+                        <tr>
+                            <td class="text-center"><?= $data->id ?></td>
+                            <td class="text-center"><?= $data->nom ?></td>
+                            <td class="text-center"><?= $data->estat ?></td>
+                            <td class="text-center"><?= $data->hora_ini ?></td>
+                            <td class="text-center"><?= $data->hora_fi ?></td>
+                            <td class="text-center"><?= $data->autor ?></td>
+                            <td class="text-center">
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

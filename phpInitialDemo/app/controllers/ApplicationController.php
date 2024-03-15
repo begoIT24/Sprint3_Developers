@@ -17,7 +17,28 @@ class ApplicationController extends Controller
     // Crea una tasca nova
     public function createAction(){
         $task = new TaskModel;
-        $task -> createTask();
+
+        if (!empty($_POST)) {
+            $newTask [] = [
+            'nom' => $_POST["nom"],
+            'estat' => $_POST["estat"],
+            'hora_ini' => $_POST["hora_ini"],
+            'hora_fi' => $_POST["hora_fi"],
+            'autor' => $_POST["autor"]];
+
+            /*$newTask [] = [
+                'nom' => 'programar CRUD',
+                'estat' => 'estat',
+                'hora_ini' => '10:00',
+                'hora_fi' => '18:00',
+                'autor' => 'pepe'];*/
+
+
+            $task -> createTask($newTask);
+            
+            return header("Location:../web/");
+        }
+       
     }
 
     // Mostra els detalls d'una tasca
