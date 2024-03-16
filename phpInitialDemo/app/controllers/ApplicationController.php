@@ -22,8 +22,8 @@ class ApplicationController extends Controller
             $newTask [] = [
             'nom' => $_POST["nom"],
             'estat' => $_POST["estat"],
-            'hora_ini' => $_POST["hora_ini"],
-            'hora_fi' => $_POST["hora_fi"],
+            'hora_ini' => date("Y-m-d H:i"),
+            'hora_fi' => date("Y-m-d H:i"),
             'autor' => $_POST["autor"]];
 
             $task -> createTask($newTask);
@@ -42,8 +42,7 @@ class ApplicationController extends Controller
     // Edita una tasca
     public function updateAction(){
         $task = new TaskModel;
-       // $id = $_GET["id"]; 
-        $id = 4;
+        $id = $_GET["id"]; 
         $editTask =  $task -> readTask($id);
         $this -> view -> editTask = $editTask;
 
@@ -60,6 +59,15 @@ class ApplicationController extends Controller
     // Esborra una tasca
     public function deleteAction(){
         $task = new TaskModel;
-        $task -> deleteTask();
+        $id = $_GET["id"];
+        $deleteTask = $task -> readTask($id);
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_delete"])) {
+            $deleteTask -> deleteTask($id);
+            header ("Location:../web/");
+            exit;
+        }
+       
+        
+        
     }
 }
