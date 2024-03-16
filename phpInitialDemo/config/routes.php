@@ -14,7 +14,7 @@ $routes = array(
 	'/' => 'application#index',
 	'/index' => 'application#index',
 	'/create' => 'application#create',
-	'/delete' => 'application#delete',
 	'/readtask' => 'application#readtask',
-	'/update' => 'application#update'
+	'/update' => 'application#update',
+	'/delete' => 'application#delete'
 );

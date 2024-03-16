@@ -26,33 +26,35 @@ class ApplicationController extends Controller
             'hora_fi' => $_POST["hora_fi"],
             'autor' => $_POST["autor"]];
 
-            /*$newTask [] = [
-                'nom' => 'programar CRUD',
-                'estat' => 'estat',
-                'hora_ini' => '10:00',
-                'hora_fi' => '18:00',
-                'autor' => 'pepe'];*/
-
-
             $task -> createTask($newTask);
-            
-            return header("Location:../web/");
+            return header("Location:../");
         }
-       
     }
 
     // Mostra els detalls d'una tasca
     public function readTaskAction(){
-       // $id = $_GET["id"];      //desde dónde entrar la id?
         $task = new TaskModel;
-        $oneTask = $task -> readTask('2');
+        $id = $_GET["id"]; 
+        $oneTask = $task -> readTask($id);
         $this -> view -> oneTask = $oneTask;
     }
 
     // Edita una tasca
     public function updateAction(){
         $task = new TaskModel;
-        $task -> updateTask();
+       // $id = $_GET["id"]; 
+        $id = 4;
+        $editTask =  $task -> readTask($id);
+        $this -> view -> editTask = $editTask;
+
+        if (!empty($_POST)) {
+            $newData [] = [
+            'nom' => $_POST["nom"],
+            'estat' => $_POST["estat"],
+            'autor' => $_POST["autor"]];
+        $task -> updateTask($newData); 
+        return header("Location:../web/");
+            }
     }
 
     // Esborra una tasca
