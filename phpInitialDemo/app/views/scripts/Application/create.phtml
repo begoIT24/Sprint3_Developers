@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/create.css">
+    <link rel="stylesheet" href="stylesheets/create_update.css">
     <title>Nova Tasca</title>
 </head>
 <body>
@@ -24,11 +25,11 @@
         
         <div class="date-input">
             <label for="hora_ini">Hora inici:</label>
-            <input type="date" id="hora_ini" name="hora_ini" required>
+            <input type="datetime-local" id="hora_ini" name="hora_ini" required>
         </div>
         <div class="date-input">
             <label for="hora_fi">Hora fi:</label>
-            <input type="date" id="hora_fi" name="hora_fi" required>
+            <input type="datetime-local" id="hora_fi" name="hora_fi" required>
         </div>
         <input type="submit" value="Guardar Tasca">
     </form>

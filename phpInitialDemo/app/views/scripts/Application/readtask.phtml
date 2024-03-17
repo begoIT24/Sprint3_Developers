@@ -34,11 +34,11 @@ $oneTask = $this -> oneTask;
             </tr>
             <tr>
                 <th>Hora inici</th>
-                <td><?php echo $oneTask->hora_ini;?></td>
+                <td><?php echo date('d/m/Y H:i', strtotime($oneTask->hora_ini));?></td>
             </tr>
             <tr>
                 <th>Hora fi</th>
-                <td><?php echo $oneTask->hora_fi;?></td>
+                <td><?php echo date('d/m/Y H:i', strtotime($oneTask->hora_fi));?></td>
             </tr>
         </table>
     </div>

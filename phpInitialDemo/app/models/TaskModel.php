@@ -14,7 +14,6 @@ class TaskModel{
 
      // Crea una tasca nova
     public function createTask($newTask) : void{
-        
          //var_dump($newTask);
          $data = $this -> readList();
          //var_dump($data);
@@ -37,30 +36,23 @@ class TaskModel{
 
     // Edita una tasca
     public function updateTask($newData){
-        //var_dump($newData); echo '</br>';
-        $task[0] = (object) $newData[0];
-        //var_dump($task);
-
-        foreach ($task as $i => $dataElement ) {
-           if ($i == "id") {
-            $dataId = $dataElement;
-           }
-        }
-        $data = $this -> readList();        // lio con nombres de variables -> MIRAR QUé PASA
+        $data = $this -> readList();
         foreach ($data as $i => $task) {
-            if ($task['id'] == $dataId) {
-                $tasks[$i] =  $newData;
+            //var_dump($task); echo '</br>';
+            if ($task -> id == $newData[0]['id']) {
+                $data[$i] =  $newData[0];
             }
         }
-        $json = json_encode(array_values($tasks), JSON_PRETTY_PRINT);
+        $json = json_encode(array_values($data), JSON_PRETTY_PRINT);
         file_put_contents(ROOT_PATH . '/app/models/data.json', $json);
-        
         }
 
     // Esborra una tasca
     public function deleteTask($id){
         $data = $this->readlist();
         unset($data[$id]);
-        return $data;
+  
+        $json = json_encode(array_values($data), JSON_PRETTY_PRINT);
+        file_put_contents(ROOT_PATH . '/app/models/data.json', $json);
     }
 }
