@@ -27,7 +27,7 @@ class ApplicationController extends Controller
             'autor' => $_POST["autor"]];
 
             $task -> createTask($newTask);
-            return header("Location:../");
+            return header("Location:./");
         }
     }
 
@@ -55,7 +55,7 @@ class ApplicationController extends Controller
                 'hora_fi' => $_POST["hora_fi"],
                 'autor' => $_POST["autor"]];
         $task -> updateTask($newData); 
-        return header("Location:../");
+        return header("Location:./");
             }
     }
 
@@ -66,7 +66,7 @@ class ApplicationController extends Controller
       
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_delete"])) {
             $task-> deleteTask($id);
-            header ("Location:../");
+            header ("Location:./");
         }
        
         
