@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.confirmation-box {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.confirmation-box h2 {
+    margin-bottom: 20px;
+}
+.confirmation-buttons {
+    margin-top: 20px;
+}
+.confirmation-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px
+}
+.confirmation-buttons button.delete {
+    background-color: #f44336;
+    color: white;
+}
+.return-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+
+
+/*.confirmation-buttons button.cancel {
+    background-color: #ccc;
+    color: black;
+}

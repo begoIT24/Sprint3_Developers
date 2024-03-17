@@ -22,42 +22,52 @@ class ApplicationController extends Controller
             $newTask [] = [
             'nom' => $_POST["nom"],
             'estat' => $_POST["estat"],
-            'hora_ini' => $_POST["hora_ini"],
-            'hora_fi' => $_POST["hora_fi"],
+            'hora_ini' => date("Y-m-d H:i"),
+            'hora_fi' => date("Y-m-d H:i"),
             'autor' => $_POST["autor"]];
 
-            /*$newTask [] = [
-                'nom' => 'programar CRUD',
-                'estat' => 'estat',
-                'hora_ini' => '10:00',
-                'hora_fi' => '18:00',
-                'autor' => 'pepe'];*/
-
-
             $task -> createTask($newTask);
-            
-            return header("Location:../web/");
+            return header("Location:../");
         }
-       
     }
 
     // Mostra els detalls d'una tasca
     public function readTaskAction(){
-       // $id = $_GET["id"];      //desde dónde entrar la id?
         $task = new TaskModel;
-        $oneTask = $task -> readTask('2');
+        $id = $_GET["id"]; 
+        $oneTask = $task -> readTask($id);
         $this -> view -> oneTask = $oneTask;
     }
 
     // Edita una tasca
     public function updateAction(){
         $task = new TaskModel;
-        $task -> updateTask();
+        $id = $_GET["id"]; 
+        $editTask =  $task -> readTask($id);
+        $this -> view -> editTask = $editTask;
+
+        if (!empty($_POST)) {
+            $newData [] = [
+            'nom' => $_POST["nom"],
+            'estat' => $_POST["estat"],
+            'autor' => $_POST["autor"]];
+        $task -> updateTask($newData); 
+        return header("Location:../web/");
+            }
     }
 
     // Esborra una tasca
     public function deleteAction(){
         $task = new TaskModel;
-        $task -> deleteTask();
+        $id = $_GET["id"];
+        $deleteTask = $task -> readTask($id);
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_delete"])) {
+            $deleteTask -> deleteTask($id);
+            header ("Location:../web/");
+            exit;
+        }
+       
+        
+        
     }
 }
