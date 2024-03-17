@@ -1,0 +1,51 @@
+<?php
+     $editTask = $this->editTask;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/create_update.css">
+    <title>Editar tasca</title>
+</head>
+<body>
+<h1>Editar Tasca</h1>
+    <form method="post">
+        <label for="nombre">Nom:</label>
+        <input type="text" id="nom" name="nom" value="<?php echo $editTask->nom; ?>" required>
+        
+        <label for="estat">Estat:</label>
+        <select id="estat" name="estat" required>
+            <option
+                <?php if ($editTask->estat == "pendent"){
+                    echo "selected";}?>
+                value="pendent">Pendent
+            </option>
+            <option
+                <?php if ($editTask->estat == "en execució"){
+                    echo "selected";}?>
+                 value="en execució">En Execució
+            </option>
+            <option
+                <?php if ($editTask->estat == "acabada"){
+                    echo "selected";}?>
+                 value="acabada">Acabada
+            </option>
+        </select>
+        
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" value="<?php echo $editTask->autor; ?>" required>
+        
+        <div class="date-input">
+            <label for="hora_ini">Hora inici:</label>
+            <input type="datetime-local" id="hora_ini" name="hora_ini" value="<?php echo $editTask->hora_ini; ?>" required>
+        </div>
+        <div class="date-input">
+            <label for="hora_fi">Hora fi:</label>
+            <input type="datetime-local" id="hora_fi" name="hora_fi" value="<?php echo $editTask->hora_fi; ?>" required>
+        </div>
+        <input type="submit" value="Guardar Canvis">
+    </form>
+</body>
+</html>

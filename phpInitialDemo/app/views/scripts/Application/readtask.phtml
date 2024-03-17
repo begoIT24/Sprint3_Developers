@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/readtask.css">
+    <title>Detall tasca</title>
+</head>
+<?php
+$oneTask = $this -> oneTask;
+//print_r($oneTask);
+?>
+
+</head>
+<body>
+    <h1>Detalls de la Tasca</h1>
+    <div class="task-details">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td><?php echo $oneTask->id; ?></td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td><?php echo $oneTask->nom; ?></td>
+            </tr>
+            <tr>
+                <th>Estat</th>
+                <td><?php echo $oneTask->estat; ?></td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td><?php echo $oneTask->autor;?></td>
+            </tr>
+            <tr>
+                <th>Hora inici</th>
+                <td><?php echo date('d/m/Y H:i', strtotime($oneTask->hora_ini));?></td>
+            </tr>
+            <tr>
+                <th>Hora fi</th>
+                <td><?php echo date('d/m/Y H:i', strtotime($oneTask->hora_fi));?></td>
+            </tr>
+        </table>
+    </div>
+    <a href="/" class="return-button">Llista</a>
+</body>
+</html>
